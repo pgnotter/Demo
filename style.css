@@ -1,0 +1,86 @@
+:root {
+  --bg: #0b1021;
+  --panel: #121733;
+  --text: #e6ecff;
+  --muted: #a6b1e1;
+  --primary: #6c8cff;
+  --success: #2ecc71;
+  --danger: #ff6b6b;
+  --ghost: #2f3a68;
+  --grid: #1e244a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  background: linear-gradient(180deg, var(--bg), #12142a);
+  color: var(--text);
+}
+
+.app-header {
+  padding: 24px 16px 8px;
+  text-align: center;
+}
+.app-header h1 { margin: 0; font-weight: 700; letter-spacing: 0.3px; }
+.app-header .subtitle { margin: 6px 0 0; color: var(--muted); }
+
+.container {
+  max-width: 980px; margin: 0 auto; padding: 16px;
+}
+
+.controls, .chart-wrap, .notes, .hud, .actions {
+  background: var(--panel);
+  border: 1px solid var(--grid);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.ticker-input label { display: block; margin-bottom: 8px; color: var(--muted); }
+.input-row { display: flex; gap: 8px; }
+input#tickerInput {
+  flex: 1;
+  background: #0e1440;
+  color: var(--text);
+  border: 1px solid var(--grid);
+  border-radius: 10px;
+  padding: 10px 12px;
+  outline: none;
+}
+input#tickerInput:focus { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(108,140,255,0.2); }
+
+.status { margin-top: 8px; min-height: 20px; color: var(--muted); }
+.status.error { color: var(--danger); }
+.status.info { color: var(--primary); }
+
+.hud { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: center; }
+.hud .label { display:block; font-size: 12px; color: var(--muted); }
+.hud .value { font-weight: 600; font-size: 16px; }
+.hud .score { font-weight: 700; font-size: 20px; color: var(--success); }
+
+.actions { display: flex; gap: 8px; justify-content: center; }
+
+button {
+  border: 1px solid transparent;
+  background: var(--ghost);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+button.primary { background: var(--primary); }
+button.success { background: #1f9e57; }
+button.danger { background: #c85050; }
+button.ghost { background: transparent; border-color: var(--grid); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.chart-wrap { padding: 12px; }
+
+.notes { color: var(--muted); }
+.notes .disclaimer { font-size: 12px; margin-top: 8px; }
+
+.app-footer { text-align: center; color: var(--muted); padding: 16px; }
+
